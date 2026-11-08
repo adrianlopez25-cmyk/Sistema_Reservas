@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sistema de reserva de equipos informáticos (DWES – UD 2 y 3)
 
 Aplicación web con Node.js, Express, EJS y JavaScript (más un núcleo en TypeScript) para reservar equipos de un centro educativo. Los datos viven en memoria; el acceso se hace mediante repositorios.
@@ -139,3 +140,7 @@ Todas las operaciones de usuario anteriores tienen su formulario HTML en la web 
 Historial de conversación con la IA: **[PEGAR AQUÍ EL ENLACE]**
 
 Resumen de cómo se ha usado: ver `GUIA-EXPLICADA.md` y completar con tus propias preguntas.
+=======
+# Sistema_Reservas
+Ejercicio Ud2 y UD3 de Servidor
+>>>>>>> 6806789b47255de09407fa4aebea7cc31ae2f1c7
