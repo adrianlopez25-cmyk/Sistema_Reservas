@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= locals.titulo || 'Reservas' %> - Reserva de equipos</title>
+  <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+<%- include('navegacion') %>
+<main>
+<% if (locals.flash) { %>
+  <p class="aviso aviso-<%= flash.tipo %>"><%= flash.texto %></p>
+<% } %>

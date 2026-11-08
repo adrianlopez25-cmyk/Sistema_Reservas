@@ -1,0 +1,15 @@
+<%- include('cabecera') %>
+<h1><%= equipo.nombre %></h1>
+<dl>
+  <dt>Código</dt><dd><%= equipo.codigo %></dd>
+  <dt>Tipo</dt><dd><%= etiquetaTipo(equipo.tipo) %></dd>
+  <dt>Estado</dt><dd><%= etiquetaEstado(equipo.estado) %></dd>
+</dl>
+<% if (equipo.estado === 'operativo') { %>
+  <p><a class="boton" href="/reservas/nueva?equipoId=<%= equipo.id %>">Reservar este equipo</a></p>
+  <p class="nota">La disponibilidad real depende de la fecha y el turno que elijas.</p>
+<% } else { %>
+  <p class="nota">Este equipo está fuera de servicio y no se puede reservar.</p>
+<% } %>
+<p><a href="/equipos">&larr; Volver al listado</a></p>
+<%- include('pie') %>

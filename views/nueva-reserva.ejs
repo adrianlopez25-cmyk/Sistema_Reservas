@@ -1,0 +1,39 @@
+<%- include('cabecera') %>
+<h1>Nueva reserva</h1>
+<%- include('errores') %>
+
+<%# Paso 1 (GET): elegir fecha y turno para ver qué equipos hay libres %>
+<form method="get" action="/reservas/nueva" class="filtros">
+  <label>Fecha
+    <input type="date" name="fecha" min="<%= hoy %>" value="<%= valores.fecha %>" required>
+  </label>
+  <label>Turno
+    <select name="turno">
+      <% turnos.forEach((t) => { %>
+        <option value="<%= t.valor %>" <%= valores.turno === t.valor ? 'selected' : '' %>><%= t.etiqueta %></option>
+      <% }) %>
+    </select>
+  </label>
+  <button type="submit">Ver equipos disponibles</button>
+</form>
+
+<%# Paso 2 (POST): elegir equipo entre los disponibles y reservar %>
+<form method="post" action="/reservas">
+  <%- include('csrf') %>
+  <input type="hidden" name="fecha" value="<%= valores.fecha %>">
+  <input type="hidden" name="turno" value="<%= valores.turno %>">
+  <p>Reserva para <strong><%= valores.fecha %></strong>, turno <strong><%= etiquetaTurno(valores.turno) %></strong></p>
+  <% if (equipos.length === 0) { %>
+    <p class="nota">No hay equipos disponibles para esa fecha y turno.</p>
+  <% } else { %>
+    <label>Equipo
+      <select name="equipoId" required>
+        <% equipos.forEach((e) => { %>
+          <option value="<%= e.id %>" <%= e.seleccionado ? 'selected' : '' %>><%= e.texto %></option>
+        <% }) %>
+      </select>
+    </label>
+    <button type="submit">Reservar</button>
+  <% } %>
+</form>
+<%- include('pie') %>

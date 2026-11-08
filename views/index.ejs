@@ -1,0 +1,38 @@
+<%- include('cabecera') %>
+<h1>Equipos del centro</h1>
+
+<form method="get" action="/equipos" class="filtros">
+  <label>Tipo
+    <select name="tipo">
+      <option value="todos">Todos</option>
+      <option value="portatil" <%= filtros.tipo === 'portatil' ? 'selected' : '' %>>Portátil</option>
+      <option value="sobremesa" <%= filtros.tipo === 'sobremesa' ? 'selected' : '' %>>Sobremesa</option>
+    </select>
+  </label>
+  <label>
+    <input type="checkbox" name="operativos" value="true" <%= filtros.soloOperativos ? 'checked' : '' %>>
+    Solo operativos
+  </label>
+  <button type="submit">Filtrar</button>
+</form>
+<p class="nota">El tipo elegido se recuerda en una cookie de preferencias para la próxima visita.</p>
+
+<% if (equipos.length === 0) { %>
+  <p>No hay equipos con esos filtros.</p>
+<% } else { %>
+  <table>
+    <thead><tr><th>Código</th><th>Nombre</th><th>Tipo</th><th>Estado</th><th></th></tr></thead>
+    <tbody>
+      <% equipos.forEach((e) => { %>
+        <tr>
+          <td><%= e.codigo %></td>
+          <td><%= e.nombre %></td>
+          <td><%= etiquetaTipo(e.tipo) %></td>
+          <td><%= etiquetaEstado(e.estado) %></td>
+          <td><a href="/equipos/<%= e.id %>">Ver ficha</a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+<%- include('pie') %>

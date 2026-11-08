@@ -1,0 +1,18 @@
+<%- include('cabecera') %>
+<h1>Registro</h1>
+<%- include('errores') %>
+<form method="post" action="/registro">
+  <%- include('csrf') %>
+  <label>Nombre
+    <input type="text" name="nombre" value="<%= valores.nombre || '' %>" required>
+  </label>
+  <label>Correo
+    <input type="email" name="email" value="<%= valores.email || '' %>" required>
+  </label>
+  <label>Contraseña (mínimo 8 caracteres)
+    <input type="password" name="password" required>
+  </label>
+  <button type="submit">Crear cuenta</button>
+</form>
+<p>¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
+<%- include('pie') %>

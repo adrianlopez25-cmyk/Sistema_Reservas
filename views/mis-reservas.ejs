@@ -1,0 +1,28 @@
+<%- include('cabecera') %>
+<h1>Mis reservas</h1>
+<% if (reservas.length === 0) { %>
+  <p>Todavía no tienes reservas. <a href="/reservas/nueva">Reserva un equipo</a></p>
+<% } else { %>
+  <table>
+    <thead><tr><th>Equipo</th><th>Fecha</th><th>Turno</th><th>Estado</th><th></th></tr></thead>
+    <tbody>
+      <% reservas.forEach((r) => { %>
+        <tr>
+          <td><%= r.equipoNombre %></td>
+          <td><%= r.fecha %></td>
+          <td><%= etiquetaTurno(r.turno) %></td>
+          <td><%= etiquetaEstado(r.estado) %></td>
+          <td>
+            <% if (r.cancelable) { %>
+              <form method="post" action="/reservas/<%= r.id %>/cancelar" class="en-linea">
+                <%- include('csrf') %>
+                <button type="submit">Cancelar</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+<%- include('pie') %>

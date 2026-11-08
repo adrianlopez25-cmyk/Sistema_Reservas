@@ -1,0 +1,19 @@
+<nav>
+  <a href="/equipos">Equipos</a>
+  <% if (locals.usuario) { %>
+    <a href="/reservas/nueva">Nueva reserva</a>
+    <a href="/mis-reservas">Mis reservas</a>
+    <% if (usuario.rol === 'admin') { %>
+      <a href="/admin/equipos">Admin equipos</a>
+      <a href="/admin/reservas">Admin reservas</a>
+    <% } %>
+    <a href="/perfil">Perfil (<%= usuario.nombre %>)</a>
+    <form method="post" action="/logout" class="en-linea">
+      <%- include('csrf') %>
+      <button type="submit">Cerrar sesión</button>
+    </form>
+  <% } else { %>
+    <a href="/login">Iniciar sesión</a>
+    <a href="/registro">Registro</a>
+  <% } %>
+</nav>

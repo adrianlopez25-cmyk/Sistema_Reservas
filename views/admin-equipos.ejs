@@ -1,0 +1,53 @@
+<%- include('cabecera') %>
+<h1>Administrar equipos</h1>
+
+<h2>Añadir equipo</h2>
+<%- include('errores') %>
+<form method="post" action="/admin/equipos">
+  <%- include('csrf') %>
+  <label>Código
+    <input type="text" name="codigo" value="<%= valores.codigo || '' %>" required>
+  </label>
+  <label>Nombre
+    <input type="text" name="nombre" value="<%= valores.nombre || '' %>" required>
+  </label>
+  <label>Tipo
+    <select name="tipo">
+      <option value="sobremesa" <%= valores.tipo === 'sobremesa' ? 'selected' : '' %>>Sobremesa</option>
+      <option value="portatil" <%= valores.tipo === 'portatil' ? 'selected' : '' %>>Portátil</option>
+    </select>
+  </label>
+  <label>Estado
+    <select name="estado">
+      <option value="operativo" <%= valores.estado !== 'fuera_de_servicio' ? 'selected' : '' %>>Operativo</option>
+      <option value="fuera_de_servicio" <%= valores.estado === 'fuera_de_servicio' ? 'selected' : '' %>>Fuera de servicio</option>
+    </select>
+  </label>
+  <button type="submit">Añadir</button>
+</form>
+
+<h2>Equipos</h2>
+<table>
+  <thead><tr><th>Código</th><th>Nombre</th><th>Tipo</th><th>Estado</th><th>Cambiar estado</th></tr></thead>
+  <tbody>
+    <% equipos.forEach((e) => { %>
+      <tr>
+        <td><%= e.codigo %></td>
+        <td><%= e.nombre %></td>
+        <td><%= etiquetaTipo(e.tipo) %></td>
+        <td><%= etiquetaEstado(e.estado) %></td>
+        <td>
+          <form method="post" action="/admin/equipos/<%= e.id %>/estado" class="en-linea">
+            <%- include('csrf') %>
+            <select name="estado">
+              <option value="operativo" <%= e.estado === 'operativo' ? 'selected' : '' %>>Operativo</option>
+              <option value="fuera_de_servicio" <%= e.estado === 'fuera_de_servicio' ? 'selected' : '' %>>Fuera de servicio</option>
+            </select>
+            <button type="submit">Guardar</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+<%- include('pie') %>

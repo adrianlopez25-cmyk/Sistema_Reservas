@@ -1,0 +1,19 @@
+body { font-family: system-ui, sans-serif; margin: 0; color: #222; background: #f6f7f9; }
+nav { background: #1f3a5f; padding: 0.6rem 1rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+nav a { color: #fff; text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+main { max-width: 900px; margin: 1.5rem auto; padding: 0 1rem; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { border: 1px solid #d5d9e0; padding: 0.5rem; text-align: left; }
+th { background: #e8ecf2; }
+label { display: block; margin-bottom: 0.8rem; }
+input, select { padding: 0.4rem; margin-top: 0.2rem; }
+button, .boton { background: #1f3a5f; color: #fff; border: 0; padding: 0.45rem 0.9rem; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-block; }
+form.en-linea { display: inline; }
+form.filtros { display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap; margin-bottom: 1rem; }
+.aviso { padding: 0.7rem 1rem; border-radius: 4px; }
+.aviso-ok { background: #dff3e4; border: 1px solid #8cc99b; }
+.aviso-error { background: #fbe0e0; border: 1px solid #e29a9a; }
+.errores { background: #fbe0e0; border: 1px solid #e29a9a; padding: 0.7rem 1.5rem; border-radius: 4px; }
+.nota { color: #555; font-size: 0.9rem; }
+dt { font-weight: bold; margin-top: 0.5rem; }

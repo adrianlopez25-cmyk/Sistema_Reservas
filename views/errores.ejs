@@ -1,0 +1,7 @@
+<% if (locals.errores && Object.keys(errores).length > 0) { %>
+  <ul class="errores">
+    <% Object.values(errores).forEach((mensaje) => { %>
+      <li><%= mensaje %></li>
+    <% }) %>
+  </ul>
+<% } %>
