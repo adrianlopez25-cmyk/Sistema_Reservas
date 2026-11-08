@@ -137,10 +137,6 @@ Todas las operaciones de usuario anteriores tienen su formulario HTML en la web 
 
 ## 6. Uso de inteligencia artificial
 
-Historial de conversación con la IA: **[PEGAR AQUÍ EL ENLACE]**
+Historial de conversación con la IA: 
 
 Resumen de cómo se ha usado: ver `GUIA-EXPLICADA.md` y completar con tus propias preguntas.
-=======
-# Sistema_Reservas
-Ejercicio Ud2 y UD3 de Servidor
->>>>>>> 6806789b47255de09407fa4aebea7cc31ae2f1c7
