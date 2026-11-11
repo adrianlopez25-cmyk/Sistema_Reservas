@@ -113,6 +113,10 @@ curl -i -b $J -c $J -d "_csrf=$T" $BASE/reservas/4/cancelar          # usa el id
 
 **Administración** (entra primero como admin@example.com / Admin1234)
 ```bash
+# Login como administrador
+T=$(token /login)
+curl -i -b $J -c $J -d "_csrf=$T&email=admin@example.com&password=Admin1234" $BASE/login
+curl -s -b $J $BASE/admin/equipos          # GET /admin/equipos (200 con rol admin)
 T=$(token /admin/equipos)
 curl -i -b $J -c $J --data-urlencode "_csrf=$T" --data-urlencode "codigo=PC-010" --data-urlencode "nombre=Aula 3" -d "tipo=sobremesa&estado=operativo" $BASE/admin/equipos
 curl -i -b $J -c $J -d "_csrf=$T&estado=fuera_de_servicio" $BASE/admin/equipos/1/estado
