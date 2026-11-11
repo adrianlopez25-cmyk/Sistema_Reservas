@@ -136,5 +136,5 @@ Todas las operaciones de usuario anteriores tienen su formulario HTML en la web 
 
 ## 6. Uso de inteligencia artificial
 
-Historial de conversación con la IA: https://gemini.google.com/app/321696577ec6e966?hl=es-ES
+Historial de conversación con la IA: https://gemini.google.com/share/d/1uWdd6fOj2-NYf1w6EXjN0HmnYGYn4BG8?usp=sharing
 
